@@ -1,0 +1,43 @@
+mysql:
+    image: daocloud.io/shuc/mysql
+    container_name: mysql
+    ports:
+        - "3306:3306"
+    volumes:
+        - /data/db/mysql:/data/db/mysql
+        - /data/logs/mysql:/data/logs/mysql
+    environment:
+        MYSQL_USER: "huaxi"
+        MYSQL_PASSWORD: "N!F3ABaFui"
+        MYSQL_ROOT_PASSWORD: "T41Df!x2L4"
+    restart: always
+redis:
+    image: daocloud.io/shuc/redis
+    container_name: redis
+    ports:
+        - "6379:6379"
+    volumes: 
+        - /data/db/redis:/data/db/redis
+        - /data/logs/redis:/data/logs/redis
+    restart: always
+memcached:
+    image: daocloud.io/shuc/memcached
+    container_name: memcached
+    ports:
+        - "11211:11211"
+    restart: always
+mongodb:
+    image: daocloud.io/shuc/mongodb3
+    container_name: mongodb
+    ports:
+        - "27017:27017"
+    volumes:
+        - /data/db/mongodb:/data/db/mongodb
+        - /data/logs/mongodb:/data/logs/mongodb
+    environment:
+        AUTH: "yes"
+        JOURNALING: "yes"
+        MONGODB_DATABASE: "huaxi"
+        MONGODB_USER: "huaxi"
+        MONGODB_PASS: "541R4evB"
+    restart: always
